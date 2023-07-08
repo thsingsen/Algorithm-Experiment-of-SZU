@@ -1,0 +1,19 @@
+快速排序伪代码:
+//对arr[low...high]进行快速排序
+QuickSort(arr, low, high) 
+    if low < high // 长度大于1
+        pivotloc = Partition(arr, low, high); // 划分子表操作，定位枢轴记录
+        QuickSort( arr, low, pivotloc-1); // 对低子表递归排序
+        QuickSort( arr, pivotloc+1, high); // 对高子表递归排序
+
+Partition(arr, low, high) 
+    pivotkey = arr[low]; // 用序列的第一个元素作枢轴元素
+    while low < high // 从表的两端交替地向中间扫描
+    // 将比枢轴元素小的元素移到低端
+        while low<high and arr[high]>=pivotkey --high;
+        arr[low] = arr[high];
+    // 将比枢轴元素大的元素移到高端
+        while low<high and arr[low]<=pivotkey ++low;
+        arr[high] = arr[low];
+    arr[low] = pivotkey; // 枢轴元素到位
+    return low; // 返回枢轴位置

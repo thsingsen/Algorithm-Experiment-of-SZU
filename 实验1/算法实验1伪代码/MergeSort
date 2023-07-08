@@ -1,0 +1,25 @@
+合并排序伪代码
+//Merge函数用于合并两个有序序列
+Merge(sourceArray,tempArray,start,mid,end)
+    i = start  j = mid+1  k = start
+    //两两比较将较小的并入新的有序数列中
+    while i <= mid and j <= end   
+        if sourceArray[i] < sourceArray[j]
+            tempArray[k] = sourceArray[i++]
+        else
+            tempArray[k] = sourceArray[j++]
+        k++
+    while i <= mid  //将mid前剩余的并入
+        tempArray[k++] = sourceArray[i++]
+    while j <= end  //将mid后剩余的并入
+        tempArray[k++] = sourceArray[j++]
+    for x = start to end  //将已经有序的序列拷贝给原序列
+        sourceArray[x] = tempArray[x]
+
+MergeSort(sourceArray,tempArray,start,end)
+    if start < end
+       mid = start + (end - start)/2  //将原序列平分
+       MergeSort(sourceArray,tempArray,start,mid) //使序列前半有序
+       MergeSort(sourceArray,tempArray,mid+1,end) //使序列后半有序
+       Merge(sourceArray,tempArray,start,mid,end) //使序列整体有序
+

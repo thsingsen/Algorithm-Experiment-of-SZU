@@ -1,0 +1,10 @@
+冒泡排序伪代码:
+BubbleSort(array)
+    for i=1 to array.length-2
+        for j=0 to array.length-2-i 
+            if array[j] > array[j+1]
+                swap(array[j],array[j+1])
+
+
+
+                

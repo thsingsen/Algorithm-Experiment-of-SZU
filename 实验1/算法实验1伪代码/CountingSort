@@ -1,0 +1,16 @@
+计数排序伪代码：
+CountingSort(A)
+let C[0..max] be a new array
+index=0
+for i = 0 to max-1
+    C[i]=0
+for j=0 to A.length-1
+    C[A[j]]=C[A[j]]+1;
+//C[i] now contains the number of elements equal to i.
+for i =0 to max-1
+    while C[i]>0
+    B[index]=i
+    index=index+1
+    C[i]=C[i]-1
+    
+
